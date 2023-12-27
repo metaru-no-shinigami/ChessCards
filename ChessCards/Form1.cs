@@ -107,7 +107,7 @@ namespace ChessCards
                     MessageBox.Show($"Incorrect! The answer was {NewCard.Move}", "Notice");
                 }
                 int SuccessRate = (int)Math.Round((decimal)100 * NewCard.Successes / NewCard.TimesPlayed);
-                NewCard.Catagory = 5 - (int)Math.Floor((decimal)(100 - SuccessRate) / 20);
+                NewCard.Catagory = (int)Math.Ceiling((decimal) SuccessRate / 20);
                 TempData.Position[CardNum] = NewCard;
                 string WriteTempData = JsonConvert.SerializeObject(TempData, Formatting.Indented);
                 File.WriteAllText(path, WriteTempData);
