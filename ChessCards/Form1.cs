@@ -102,6 +102,10 @@ namespace ChessCards
                     Correct++;
                     NewCard.Successes++;
                 }
+                else
+                {
+                    MessageBox.Show($"Incorrect! The answer was {NewCard.Move}", "Notice");
+                }
                 int SuccessRate = (int)Math.Round((decimal)100 * NewCard.Successes / NewCard.TimesPlayed);
                 NewCard.Catagory = 5 - (int)Math.Floor((decimal)(100 - SuccessRate) / 20);
                 TempData.Position[CardNum] = NewCard;
