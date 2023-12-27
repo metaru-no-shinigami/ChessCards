@@ -48,31 +48,6 @@ namespace ChessCards
             string json = File.ReadAllText(path);
             var CardData = JsonConvert.DeserializeObject<Flashcard>(json);
             List<Position> SetData = CardData.Position;
-            Random random = new Random();
-            int TempCatagory = random.Next(1, 6);
-            List<Position> CatagorySet = new List<Position>();
-            foreach (Position Card in SetData)
-            {
-                if (Card.Catagory <= TempCatagory)
-                {
-                    CatagorySet.Add(Card);
-                }
-            }    
-            int size = CatagorySet.Count;
-            if (size == 0)
-            {
-                CatagorySet = SetData;
-                size = CatagorySet.Count;
-            }
-            int CardTempNum = random.Next(size);
-            NewCard = CatagorySet[CardTempNum];
-            CardNum = SetData.IndexOf(NewCard);
-            while (CompletedCards.Count < SetData.Count && CompletedCards.Contains(CardNum))
-            {
-                CardTempNum = random.Next(size);
-                NewCard = CatagorySet[CardTempNum];
-                CardNum = SetData.IndexOf(NewCard);
-            }  
             if (CompletedCards.Count == SetData.Count)
             {
                 int Percent = (int)Math.Round((decimal) 100 * Correct / Total);
@@ -80,6 +55,31 @@ namespace ChessCards
             }
             else
             {
+                Random random = new Random();
+                int TempCatagory = random.Next(1, 6);
+                List<Position> CatagorySet = new List<Position>();
+                foreach (Position Card in SetData)
+                {
+                    if (Card.Catagory <= TempCatagory)
+                    {
+                        CatagorySet.Add(Card);
+                    }
+                }
+                int size = CatagorySet.Count;
+                if (size == 0)
+                {
+                    CatagorySet = SetData;
+                    size = CatagorySet.Count;
+                }
+                int CardTempNum = random.Next(size);
+                NewCard = CatagorySet[CardTempNum];
+                CardNum = SetData.IndexOf(NewCard);
+                while (CompletedCards.Count < SetData.Count && CompletedCards.Contains(CardNum))
+                {
+                    CardTempNum = random.Next(size);
+                    NewCard = CatagorySet[CardTempNum];
+                    CardNum = SetData.IndexOf(NewCard);
+                }
                 pictureBox1.Load(NewCard.PositionURL);
             }
             if (CompletedCards.Contains(CardNum) == false)
