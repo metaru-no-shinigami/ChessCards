@@ -82,7 +82,7 @@ namespace ChessCards
                 }
                 pictureBox1.Load(NewCard.PositionURL);
             }
-            if (CompletedCards.Contains(CardNum) == false)
+            if (!CompletedCards.Contains(CardNum))
             {
                 CompletedCards.Add(CardNum);
             }
