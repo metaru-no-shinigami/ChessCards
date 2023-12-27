@@ -93,7 +93,7 @@ namespace ChessCards
         {
             string json = File.ReadAllText(path);
             var TempData = JsonConvert.DeserializeObject<Flashcard>(json);
-            if (e.KeyCode == Keys.Enter && CompletedCards.Count <= TempData.Position.Count && textBox1.Text != null)
+            if (e.KeyCode == Keys.Enter && CompletedCards.Count <= TempData.Position.Count && textBox1.Text != "")
             {
                 Total++;
                 NewCard.TimesPlayed++;
