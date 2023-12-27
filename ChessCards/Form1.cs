@@ -73,14 +73,25 @@ namespace ChessCards
                 Random random = new Random();
                 int TempCatagory = random.Next(1, 6);
                 CheckStatistics();
-                int Check = 0;
+                bool Check = false;
                 for (int i = 0; i <= TempCatagory; i++)
                 {
-                    Check = Check + Ranks[i];
+                    if (Ranks[i] != 0)
+                    {
+                        Check = true;
+                        break;
+                    }
                 }
-                if (Check == 0)
+                if (!Check)
                 {
-                    TempCatagory = 5;
+                    for (int v = 0; v <= 5; v++)
+                    {
+                        if (Ranks[v] != 0)
+                        {
+                            TempCatagory = v;
+                            break;
+                        }
+                    }
                 }
                 List<Position> CatagorySet = new List<Position>();
                 List<Position> CompletedList = new List<Position>();
@@ -138,11 +149,9 @@ namespace ChessCards
 
         public void button1_Click(object sender, EventArgs e)
         {
-            string json = File.ReadAllText(path);
-            var StatData = JsonConvert.DeserializeObject<Flashcard>(json);
-            List<Position> CatagorySearch = StatData.Position;
             CheckStatistics();
-            MessageBox.Show($"Total: {CatagorySearch.Count} \nRank 1: {Ranks[5]} ({(int)Math.Round((decimal)100 * Ranks[5] / CatagorySearch.Count)}%) \nRank 2: {Ranks[4]} ({(int)Math.Round((decimal)100 * Ranks[4] / CatagorySearch.Count)}%) \nRank 3: {Ranks[3]} ({(int)Math.Round((decimal)100 * Ranks[3] / CatagorySearch.Count)}%) \nRank 4: {Ranks[2]} ({(int)Math.Round((decimal)100 * Ranks[2] / CatagorySearch.Count)}%) \nRank 5: {Ranks[1]} ({(int)Math.Round((decimal)100 * Ranks[1] / CatagorySearch.Count)}%) \nUnranked: {Ranks[0]} ({(int)Math.Round((decimal)100 * Ranks[0] / CatagorySearch.Count)}%) \n\n*NOTE: Each rank is 20%", "Stats");
+            int T = Ranks[0] + Ranks[1] + Ranks[2] + Ranks[3] + Ranks[4] + Ranks[5];  
+            MessageBox.Show($"Total: {T} \nRank 1: {Ranks[5]} ({(int)Math.Round((decimal)100 * Ranks[5] / T)}%) \nRank 2: {Ranks[4]} ({(int)Math.Round((decimal)100 * Ranks[4] / T)}%) \nRank 3: {Ranks[3]} ({(int)Math.Round((decimal)100 * Ranks[3] / T)}%) \nRank 4: {Ranks[2]} ({(int)Math.Round((decimal)100 * Ranks[2] / T)}%) \nRank 5: {Ranks[1]} ({(int)Math.Round((decimal)100 * Ranks[1] / T)}%) \nUnranked: {Ranks[0]} ({(int)Math.Round((decimal)100 * Ranks[0] / T)}%) \n\n*NOTE: Each rank is 20%", "Stats");
         }
 
         private void button3_Click(object sender, EventArgs e)
