@@ -74,7 +74,7 @@ namespace ChessCards
                 int CardTempNum = random.Next(size);
                 NewCard = CatagorySet[CardTempNum];
                 CardNum = SetData.IndexOf(NewCard);
-                while (CompletedCards.Count < SetData.Count && CompletedCards.Contains(CardNum))
+                while (CompletedCards.Contains(CardNum))
                 {
                     CardTempNum = random.Next(size);
                     NewCard = CatagorySet[CardTempNum];
