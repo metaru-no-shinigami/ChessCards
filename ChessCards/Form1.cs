@@ -35,12 +35,26 @@ namespace ChessCards
         private int Total = 0;
         private int CardNum = 0;
         private readonly string path = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\ChessCardsData.txt";
+        private int[] Ranks = { 0, 0, 0, 0, 0, 0 };
+        private bool Finished = false;
 
         public ChessCards()
         {
             InitializeComponent();
             this.KeyPreview = true;
             GenerateNewCard();
+        }
+
+        public void CheckStatistics()
+        {
+            string json = File.ReadAllText(path);
+            var StatData = JsonConvert.DeserializeObject<Flashcard>(json);
+            List<Position> CatagorySearch = StatData.Position;
+            Array.Clear(Ranks, 0, 6);
+            foreach (Position Search in CatagorySearch)
+            {
+                Ranks[Search.Catagory]++;
+            }
         }
 
         public void GenerateNewCard()
@@ -52,48 +66,48 @@ namespace ChessCards
             {
                 int Percent = (int)Math.Round((decimal) 100 * Correct / Total);
                 MessageBox.Show($"All cards complete! Your score is {Percent}% ({Correct}/{Total})", "Message");
+                Finished = true;
             }
             else
             {
                 Random random = new Random();
                 int TempCatagory = random.Next(1, 6);
+                CheckStatistics();
+                int Check = 0;
+                for (int i = 0; i <= TempCatagory; i++)
+                {
+                    Check = Check + Ranks[i];
+                }
+                if (Check == 0)
+                {
+                    TempCatagory = 5;
+                }
                 List<Position> CatagorySet = new List<Position>();
+                List<Position> CompletedList = new List<Position>();
+                foreach (int id in CompletedCards)
+                {
+                    CompletedList.Add(SetData[id]);
+                }
                 foreach (Position Card in SetData)
                 {
-                    if (Card.Catagory <= TempCatagory)
+                    if (Card.Catagory <= TempCatagory && !CompletedList.Contains(Card))
                     {
                         CatagorySet.Add(Card);
                     }
                 }
                 int size = CatagorySet.Count;
-                if (size == 0)
-                {
-                    CatagorySet = SetData;
-                    size = CatagorySet.Count;
-                }
                 int CardTempNum = random.Next(size);
                 NewCard = CatagorySet[CardTempNum];
                 CardNum = SetData.IndexOf(NewCard);
-                while (CompletedCards.Contains(CardNum)) // find a better way of doing this
-                {
-                    CardTempNum = random.Next(size);
-                    NewCard = CatagorySet[CardTempNum];
-                    CardNum = SetData.IndexOf(NewCard);
-                }
-                pictureBox1.Load(NewCard.PositionURL);
-            }
-            if (!CompletedCards.Contains(CardNum))
-            {
                 CompletedCards.Add(CardNum);
+                pictureBox1.Load(NewCard.PositionURL);
             }
 
         }
 
         private void ChessCards_KeyDown(object sender, KeyEventArgs e)
         {
-            string json = File.ReadAllText(path);
-            var TempData = JsonConvert.DeserializeObject<Flashcard>(json);
-            if (e.KeyCode == Keys.Enter && CompletedCards.Count <= TempData.Position.Count && textBox1.Text != "")
+            if (e.KeyCode == Keys.Enter && !Finished && textBox1.Text != "")
             {
                 Total++;
                 NewCard.TimesPlayed++;
@@ -108,6 +122,8 @@ namespace ChessCards
                 }
                 int SuccessRate = (int)Math.Round((decimal)100 * NewCard.Successes / NewCard.TimesPlayed);
                 NewCard.Catagory = (int)Math.Ceiling((decimal) SuccessRate / 20);
+                string json = File.ReadAllText(path);
+                var TempData = JsonConvert.DeserializeObject<Flashcard>(json);
                 TempData.Position[CardNum] = NewCard;
                 string WriteTempData = JsonConvert.SerializeObject(TempData, Formatting.Indented);
                 File.WriteAllText(path, WriteTempData);
@@ -125,11 +141,7 @@ namespace ChessCards
             string json = File.ReadAllText(path);
             var StatData = JsonConvert.DeserializeObject<Flashcard>(json);
             List<Position> CatagorySearch = StatData.Position;
-            int[] Ranks = {0, 0, 0, 0, 0, 0};
-            foreach (Position Search in CatagorySearch)
-            {
-                Ranks[Search.Catagory]++;
-            }
+            CheckStatistics();
             MessageBox.Show($"Total: {CatagorySearch.Count} \nRank 1: {Ranks[5]} ({(int)Math.Round((decimal)100 * Ranks[5] / CatagorySearch.Count)}%) \nRank 2: {Ranks[4]} ({(int)Math.Round((decimal)100 * Ranks[4] / CatagorySearch.Count)}%) \nRank 3: {Ranks[3]} ({(int)Math.Round((decimal)100 * Ranks[3] / CatagorySearch.Count)}%) \nRank 4: {Ranks[2]} ({(int)Math.Round((decimal)100 * Ranks[2] / CatagorySearch.Count)}%) \nRank 5: {Ranks[1]} ({(int)Math.Round((decimal)100 * Ranks[1] / CatagorySearch.Count)}%) \nUnranked: {Ranks[0]} ({(int)Math.Round((decimal)100 * Ranks[0] / CatagorySearch.Count)}%) \n\n*NOTE: Each rank is 20%", "Stats");
         }
 
