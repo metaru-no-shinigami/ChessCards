@@ -164,6 +164,9 @@ namespace ChessCards
         {
             string[] opening = System.IO.File.ReadAllLines(PrepPath);
             bool IsWhite = true;
+            List<string> URLs = new List<string>();
+            int Added = 0;
+            int Removed = 0;
             foreach (string line in opening)
             {
                 if (line == "White")
@@ -209,6 +212,7 @@ namespace ChessCards
                             URL = "https://fen2image.chessvision.ai/" + FEN + "?turn=black&pov=black";
                             CardMove = Moves[IndexNum + 1].Split(' ')[2];
                         }
+                        URLs.Add(URL);
                         bool Unique = true;
                         foreach (Position Flash in CardList)
                         {
@@ -228,12 +232,30 @@ namespace ChessCards
                             CardList.Add(GeneratedCard);
                             string WriteTempData = JsonConvert.SerializeObject(TempData, Formatting.Indented);
                             System.IO.File.WriteAllText(Path, WriteTempData);
+                            Added++;
                         }
                     }
                 }
             }
-            MessageBox.Show("Done!", "Notice");
-
+            string jsons = System.IO.File.ReadAllText(Path);
+            var CheckData = JsonConvert.DeserializeObject<Flashcard>(jsons);
+            List<Position> Checklist = CheckData.Position;
+            List<Position> MarkForRemoval = new List<Position>();
+            foreach (Position Check in Checklist)
+            {
+                if (!URLs.Contains(Check.PositionURL))
+                { 
+                    MarkForRemoval.Add(Check);
+                    Removed++;
+                }
+            }
+            foreach (Position Fish in MarkForRemoval)
+            {
+                Checklist.Remove(Fish);
+            }
+            string WriteTempDatas = JsonConvert.SerializeObject(CheckData, Formatting.Indented);
+            System.IO.File.WriteAllText(Path, WriteTempDatas);
+            MessageBox.Show($"Done! {Added} added and {Removed} removed", "Notice");
         }
     }
 }
