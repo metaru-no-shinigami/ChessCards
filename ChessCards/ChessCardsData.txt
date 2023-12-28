@@ -120,16 +120,16 @@
       "Move": "g3"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1b1kb1r/ppp2ppp/2n5/1B1pP3/4q3/2P2QP1/PPP4P/R1B1K1NR_w_KQkq_-_1_9?turn=white",
       "Move": "Qxe4"
     },
     {
       "Catagory": 5,
-      "Successes": 1,
-      "TimesPlayed": 1,
+      "Successes": 4,
+      "TimesPlayed": 4,
       "PositionURL": "https://fen2image.chessvision.ai/r1b1kb1r/ppp2ppp/2n5/1B2P3/4p3/2P3P1/PPP4P/R1B1K1NR_w_KQkq_-_0_10?turn=white",
       "Move": "Bf4"
     },
@@ -141,9 +141,9 @@
       "Move": "O-O-O"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqk1nr/pppp1ppp/8/2b1p3/4P3/2N5/PPPP1PPP/R1BQKBNR_w_KQkq_-_2_3?turn=white",
       "Move": "f4"
     },
@@ -155,9 +155,9 @@
       "Move": "Nf3"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqk2r/ppp2ppp/3p1n2/2b1p3/4PP2/2N2N2/PPPP2PP/R1BQKB1R_w_KQkq_-_2_5?turn=white",
       "Move": "Bc4"
     },
@@ -183,9 +183,9 @@
       "Move": "Nd5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqk1nr/pppp1ppp/2n5/2b5/4Pp2/2N2N2/PPPP2PP/R1BQKB1R_w_KQkq_-_2_5?turn=white",
       "Move": "Bc4"
     },
@@ -197,37 +197,37 @@
       "Move": "d3"
     },
     {
-      "Catagory": 1,
-      "Successes": 0,
-      "TimesPlayed": 1,
+      "Catagory": 3,
+      "Successes": 1,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqk1nr/ppp2ppp/3p4/2b5/2BnPp2/2NP1N2/PPP3PP/R1BQK2R_w_KQkq_-_0_7?turn=white",
       "Move": "Bxf4"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r2qk1nr/ppp2ppp/3p4/2b5/2BnPBb1/2NP1N2/PPP3PP/R2QK2R_w_KQkq_-_1_8?turn=white",
       "Move": "Nb5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r2qk1nr/ppp2ppp/3p4/1nb5/2B1PBb1/3P1N2/PPP3PP/R2QK2R_w_KQkq_-_0_9?turn=white",
       "Move": "Bxb5+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r2qk1nr/pp3ppp/2pp4/1Bb5/4PBb1/3P1N2/PPP3PP/R2QK2R_w_KQkq_-_0_10?turn=white",
       "Move": "Bc4"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqk1nr/pppp1p1p/8/2b3p1/2BnPp2/2NP1N2/PPP3PP/R1BQK2R_w_KQkq_g6_0_7?turn=white",
       "Move": "h4"
     },
@@ -267,9 +267,9 @@
       "Move": "Rxg1"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnb1k1nr/pppp1ppp/8/4p3/4PP1q/2N5/PPPP2PP/R1BQKBR1_w_Qkq_-_1_5?turn=white",
       "Move": "g3"
     },
@@ -302,9 +302,9 @@
       "Move": "Rg1"
     },
     {
-      "Catagory": 1,
-      "Successes": 0,
-      "TimesPlayed": 1,
+      "Catagory": 3,
+      "Successes": 1,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqk1nr/pppp1ppp/2n5/2b1p3/4PP2/2N5/PPPP2PP/R1BQKBNR_w_KQkq_-_1_4?turn=white",
       "Move": "fxe5"
     },
@@ -316,9 +316,9 @@
       "Move": "g3"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkb1r/pppp1ppp/5n2/8/4Pp2/2N5/PPPP2PP/R1BQKBNR_w_KQkq_-_0_4?turn=white",
       "Move": "e5"
     },
@@ -379,9 +379,9 @@
       "Move": "Qxf3"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnb1kbnr/pppp1p1p/8/4P3/2B2p1q/2N2Q2/PPPP2PP/R1B2RK1_w_kq_-_1_9?turn=white",
       "Move": "d4"
     },
@@ -400,9 +400,9 @@
       "Move": "Nd5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnb1kb1r/pppp1p1p/7n/2qNP3/2B2Q2/8/PPPP2PP/R1B2RK1_w_kq_-_3_11?turn=white",
       "Move": "Kh1"
     },
@@ -414,9 +414,9 @@
       "Move": "Bb3"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 2,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rn2kb1r/pbpp1p1p/7n/1pqNP3/5Q2/1B6/PPPP2PP/R1B2R1K_w_kq_-_2_13?turn=white",
       "Move": "Nxc7+"
     },
@@ -428,9 +428,9 @@
       "Move": "Bxf7+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rn2kb1r/pbqp1n1p/8/1p2P3/5Q2/8/PPPP2PP/R1B2R1K_w_kq_-_0_15?turn=white",
       "Move": "Qxf7+"
     },
@@ -456,9 +456,9 @@
       "Move": "Qf6+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnk2b1r/pbqp1B1p/5Q1n/1p2P3/8/8/PPPP2PP/R1B2R1K_w_-_-_3_16?turn=white",
       "Move": "Qxh8"
     },
@@ -470,23 +470,23 @@
       "Move": "Kxg2"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 3,
+      "Successes": 1,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnk2b1Q/p2p1B1p/2q4n/1p2P3/8/8/PPPP2KP/R1B2R2_w_-_-_1_18?turn=white",
       "Move": "Kh3"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnk2b1Q/p2p1n1p/2q5/1p2P3/8/7K/PPPP3P/R1B2R2_w_-_-_0_19?turn=white",
       "Move": "Qxf8+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkbnr/ppp2ppp/3p4/4P3/5p2/2N2N2/PPPP2PP/R1BQKB1R_w_KQkq_-_0_6?turn=white",
       "Move": "d4"
     },
@@ -498,9 +498,9 @@
       "Move": "Bb5+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rn1qkbnr/pppb1ppp/8/1B2p3/3P1p2/2N2N2/PPP3PP/R1BQK2R_w_KQkq_-_2_8?turn=white",
       "Move": "Qe2"
     },
@@ -526,9 +526,9 @@
       "Move": "Bxf7+"
     },
     {
-      "Catagory": 0,
+      "Catagory": 1,
       "Successes": 0,
-      "TimesPlayed": 0,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rn1q1bnr/pp2kBpp/2p5/4p3/3P1pb1/2N2N2/PPP3PP/R1BQK2R_w_KQ_-_1_10?turn=white",
       "Move": "Qd3"
     },
@@ -548,8 +548,8 @@
     },
     {
       "Catagory": 5,
-      "Successes": 1,
-      "TimesPlayed": 1,
+      "Successes": 2,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rn3bnr/pp3kpp/2p5/4P3/5p1q/2N2Q2/PPP3PP/R1B1K2R_w_KQ_-_1_13?turn=white",
       "Move": "g3"
     },
@@ -589,9 +589,9 @@
       "Move": "Qxg4"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkbnr/pp3ppp/2p5/8/2Bp1p2/2N2N2/PPP3PP/R1BQK2R_w_KQkq_-_0_9?turn=white",
       "Move": "Bxf4"
     },
@@ -618,29 +618,29 @@
     },
     {
       "Catagory": 5,
-      "Successes": 1,
-      "TimesPlayed": 1,
+      "Successes": 2,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkbnr/pp4pp/2p5/4N3/5B2/2p5/PPP1Q1PP/R3K2R_w_KQ_-_2_13?turn=white",
       "Move": "Nxc6+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbq1bnr/pp4pp/2p2k2/4N3/5B2/2p5/PPP1Q1PP/R3K2R_w_KQ_-_2_13?turn=white",
       "Move": "Bg5+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbq1bnr/pp4pp/2p5/4N1k1/8/2p5/PPP1Q1PP/R3K2R_w_KQ_-_0_14?turn=white",
       "Move": "Nf7+"
     },
     {
       "Catagory": 5,
-      "Successes": 2,
-      "TimesPlayed": 2,
+      "Successes": 3,
+      "TimesPlayed": 3,
       "PositionURL": "https://fen2image.chessvision.ai/rnbq1bnr/pp3Npp/2p2k2/8/8/2p5/PPP1Q1PP/R3K2R_w_KQ_-_2_15?turn=white",
       "Move": "O-O+"
     },
@@ -694,9 +694,9 @@
       "Move": "Nxh8+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbq1bnN/pp4pp/2p5/6k1/8/2p5/PPP1Q1PP/R4RK1_w_-_-_1_17?turn=white",
       "Move": "Nf7+"
     },
@@ -708,16 +708,16 @@
       "Move": "Nxd8"
     },
     {
-      "Catagory": 1,
-      "Successes": 0,
-      "TimesPlayed": 1,
+      "Catagory": 3,
+      "Successes": 1,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnb1kbnr/pp2qppp/2p5/8/2Bp1B2/2N2N2/PPP3PP/R2QK2R_w_KQkq_-_1_10?turn=white",
       "Move": "Ne5"
     },
     {
-      "Catagory": 1,
-      "Successes": 0,
-      "TimesPlayed": 1,
+      "Catagory": 3,
+      "Successes": 1,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnb1kbnr/pp2q1pp/2p2p2/4N3/2Bp1B2/2N5/PPP3PP/R2QK2R_w_KQkq_-_0_11?turn=white",
       "Move": "O-O"
     },
@@ -743,16 +743,16 @@
       "Move": "Nxf7"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnb1kb1r/ppppqppp/5n2/4P3/5p2/2N5/PPPP2PP/R1BQKBNR_w_KQkq_-_1_5?turn=white",
       "Move": "Qe2"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 3,
+      "Successes": 1,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnb1kbnr/ppppqppp/8/4P3/5p2/2N5/PPPPQ1PP/R1B1KBNR_w_KQkq_-_3_6?turn=white",
       "Move": "d4"
     },
@@ -765,8 +765,8 @@
     },
     {
       "Catagory": 5,
-      "Successes": 1,
-      "TimesPlayed": 1,
+      "Successes": 2,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkbnr/ppp2ppp/3p4/3NP3/5p2/5N2/PPPPQ1PP/R1B1KB1R_w_KQkq_-_2_8?turn=white",
       "Move": "Nxc7+"
     },
@@ -807,8 +807,8 @@
     },
     {
       "Catagory": 5,
-      "Successes": 1,
-      "TimesPlayed": 1,
+      "Successes": 2,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkb1r/ppp2ppp/3p1n2/4p3/4PP2/2N5/PPPP2PP/R1BQKBNR_w_KQkq_-_0_4?turn=white",
       "Move": "Nf3"
     },
@@ -827,9 +827,9 @@
       "Move": "O-O"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1bq1rk1/pppnbppp/3p1n2/4p3/2B1PP2/2N2N2/PPPP2PP/R1BQ1RK1_w_-_-_6_7?turn=white",
       "Move": "d3"
     },
@@ -841,9 +841,9 @@
       "Move": "fxe5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqkb1r/pppp1ppp/5n2/4n3/4P3/2N5/PPPP2PP/R1BQKBNR_w_KQkq_-_0_5?turn=white",
       "Move": "d4"
     },
@@ -855,9 +855,9 @@
       "Move": "e5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqkbnr/pppp1ppp/6n1/4P3/3P4/2N5/PPP3PP/R1BQKBNR_w_KQkq_-_1_7?turn=white",
       "Move": "Nf3"
     },
@@ -869,9 +869,9 @@
       "Move": "Bc4"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqkbnr/ppp2ppp/6n1/4p3/2BP4/2N2N2/PPP3PP/R1BQK2R_w_KQkq_-_0_9?turn=white",
       "Move": "O-O"
     },
@@ -883,9 +883,9 @@
       "Move": "Ng5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqkb1r/pppp1ppp/5n2/8/3PP1n1/2N5/PPP3PP/R1BQKBNR_w_KQkq_-_1_6?turn=white",
       "Move": "e5"
     },
@@ -918,9 +918,9 @@
       "Move": "O-O"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 3,
+      "Successes": 1,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqkbnr/ppp2ppp/2n5/8/2Bp4/2N2N2/PPP3PP/R1BQ1RK1_w_kq_-_0_10?turn=white",
       "Move": "Ng5"
     },
@@ -940,43 +940,43 @@
     },
     {
       "Catagory": 5,
-      "Successes": 1,
-      "TimesPlayed": 1,
+      "Successes": 2,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqk2r/pppp1ppp/3b1n2/8/3PP3/2N5/PPP3PP/R1BQKBNR_w_KQkq_-_1_6?turn=white",
       "Move": "e5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqk2r/pppp1ppp/5n2/4b3/3P4/2N5/PPP3PP/R1BQKBNR_w_KQkq_-_0_7?turn=white",
       "Move": "dxe5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 3,
+      "Successes": 1,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqk1nr/pppp1ppp/8/4P3/8/2N5/PPP3PP/R1BQKBNR_w_KQkq_-_1_8?turn=white",
       "Move": "Qg4"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqk2r/pppp1ppp/5n2/4p3/1b2PP2/2N5/PPPP2PP/R1BQKBNR_w_KQkq_-_1_4?turn=white",
       "Move": "fxe5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqk2r/pppp1ppp/5n2/4P3/4P3/2b5/PPPP2PP/R1BQKBNR_w_KQkq_-_0_5?turn=white",
       "Move": "dxc3"
     },
     {
-      "Catagory": 0,
+      "Catagory": 1,
       "Successes": 0,
-      "TimesPlayed": 0,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqk2r/pppp1ppp/8/4P3/4n3/2P5/PPP3PP/R1BQKBNR_w_KQkq_-_0_6?turn=white",
       "Move": "Qg4"
     },
@@ -1002,9 +1002,9 @@
       "Move": "bxc3"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkb1r/pp3ppp/8/2ppP3/8/2P2Q2/P1PP2PP/R1B1KBNR_w_KQkq_c6_0_7?turn=white",
       "Move": "Qg3"
     },
@@ -1017,15 +1017,15 @@
     },
     {
       "Catagory": 5,
-      "Successes": 1,
-      "TimesPlayed": 1,
+      "Successes": 2,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/r1b1kb1r/pp3ppp/1qn5/1BppP3/8/2P3Q1/P1PP2PP/R1B1K1NR_w_KQkq_-_4_9?turn=white",
       "Move": "a4"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r3kb1r/pp3ppp/1qn1b3/1BppP3/P7/2P3Q1/2PP2PP/R1B1K1NR_w_KQkq_-_1_10?turn=white",
       "Move": "Ne2"
     },
@@ -1051,23 +1051,23 @@
       "Move": "Ne2"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbq1rk1/pp2bppp/8/3pP3/2pP4/2PB1Q2/P1P1N1PP/R1B1K2R_w_KQ_-_0_10?turn=white",
       "Move": "Bf5"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rn1q1rk1/pp2bppp/8/3pPb2/2pP4/2P2Q2/P1P1N1PP/R1B1K2R_w_KQ_-_0_11?turn=white",
       "Move": "Qxf5"
     },
     {
-      "Catagory": 0,
+      "Catagory": 1,
       "Successes": 0,
-      "TimesPlayed": 0,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r2q1rk1/pp2bppp/n7/3pPQ2/2pP4/2P5/P1P1N1PP/R1B1K2R_w_KQ_-_1_12?turn=white",
       "Move": "Rb1"
     },
@@ -1086,16 +1086,16 @@
       "Move": "g3"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnb1kb1r/ppp2ppp/8/3pP3/4q3/2P2QP1/P1PP3P/R1B1KBNR_w_KQkq_-_1_8?turn=white",
       "Move": "Qxe4"
     },
     {
-      "Catagory": 1,
-      "Successes": 0,
-      "TimesPlayed": 1,
+      "Catagory": 3,
+      "Successes": 1,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/rnb1kb1r/ppp2ppp/8/4P3/4p3/2P3P1/P1PP3P/R1B1KBNR_w_KQkq_-_0_9?turn=white",
       "Move": "Bg2"
     },
@@ -1121,16 +1121,16 @@
       "Move": "Bxa8"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1b1kb1r/ppp2ppp/2n5/4P3/4p3/2P3P1/P1PP2BP/R1B1K1NR_w_KQkq_-_2_10?turn=white",
       "Move": "Bxe4"
     },
     {
       "Catagory": 5,
-      "Successes": 1,
-      "TimesPlayed": 1,
+      "Successes": 2,
+      "TimesPlayed": 2,
       "PositionURL": "https://fen2image.chessvision.ai/r1b1kb1r/ppp2ppp/8/4n3/4B3/2P3P1/P1PP3P/R1B1K1NR_w_KQkq_-_0_11?turn=white",
       "Move": "d4"
     },
@@ -1163,9 +1163,9 @@
       "Move": "Be2"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkb1r/ppp4p/6p1/4Pp2/8/2pP2Q1/P1P1B1PP/R1B1K1NR_w_KQkq_-_0_10?turn=white",
       "Move": "Bf3"
     },
@@ -1177,9 +1177,9 @@
       "Move": "Ne2"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkb1r/1pp3pp/p7/4Pp2/8/2pP2Q1/P1P1B1PP/R1B1K1NR_w_KQkq_-_0_10?turn=white",
       "Move": "Bh5+"
     },
@@ -1191,16 +1191,16 @@
       "Move": "Bxg6+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbqkb1r/1pp5/p5p1/4Pp2/8/2pP2Q1/P1P3PP/R1B1K1NR_w_KQkq_-_0_12?turn=white",
       "Move": "Qxg6+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/rnbq1b1r/1ppk4/p5Q1/4Pp2/8/2pP4/P1P3PP/R1B1K1NR_w_KQ_-_1_13?turn=white",
       "Move": "e6+"
     },
@@ -1219,9 +1219,9 @@
       "Move": "Bg5+"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqkb1r/ppp3pp/2n5/4Pp2/3p4/2PP2Q1/P1P3PP/R1B1KBNR_w_KQkq_-_2_9?turn=white",
       "Move": "Be2"
     },
@@ -1233,9 +1233,9 @@
       "Move": "Bf3"
     },
     {
-      "Catagory": 1,
-      "Successes": 0,
-      "TimesPlayed": 1,
+      "Catagory": 2,
+      "Successes": 1,
+      "TimesPlayed": 3,
       "PositionURL": "https://fen2image.chessvision.ai/r3kb1r/pppq2pp/2n1b3/4Pp2/3p4/2PP1BQ1/P1P3PP/R1B1K1NR_w_KQkq_-_6_11?turn=white",
       "Move": "c4"
     },
@@ -1275,9 +1275,9 @@
       "Move": "Nf4"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1bqkb1r/1pp2ppp/p1n5/1B1pP3/8/2P2Q2/PPP3PP/R1B1K1NR_w_KQkq_-_0_8?turn=white",
       "Move": "Bxc6+"
     },
@@ -1289,9 +1289,9 @@
       "Move": "Ne2"
     },
     {
-      "Catagory": 0,
-      "Successes": 0,
-      "TimesPlayed": 0,
+      "Catagory": 5,
+      "Successes": 1,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r1b1kb1r/2p2ppp/p1p5/3pP3/7q/2P2Q2/PPP1N1PP/R1B1K2R_w_KQkq_-_2_10?turn=white",
       "Move": "Ng3"
     },
@@ -1303,9 +1303,9 @@
       "Move": "Qg3"
     },
     {
-      "Catagory": 0,
+      "Catagory": 1,
       "Successes": 0,
-      "TimesPlayed": 0,
+      "TimesPlayed": 1,
       "PositionURL": "https://fen2image.chessvision.ai/r2qk2r/ppp2ppp/2n5/1BbpPb2/8/2P3Q1/PPP3PP/R1B1K1NR_w_KQkq_-_3_9?turn=white",
       "Move": "Nf3"
     },

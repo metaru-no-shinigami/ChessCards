@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
@@ -212,7 +206,10 @@ namespace ChessCards
                             URL = "https://fen2image.chessvision.ai/" + FEN + "?turn=black&pov=black";
                             CardMove = Moves[IndexNum + 1].Split(' ')[2];
                         }
-                        URLs.Add(URL);
+                        if (!URLs.Contains(URL))
+                        {
+                            URLs.Add(URL);
+                        }
                         bool Unique = true;
                         foreach (Position Flash in CardList)
                         {
