@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
+using ChessDotNet;
 
 namespace ChessCards
 {
@@ -34,7 +35,8 @@ namespace ChessCards
         private int Correct = 0;
         private int Total = 0;
         private int CardNum = 0;
-        private readonly string path = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\ChessCardsData.txt";
+        private readonly string Path = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\ChessCardsData.txt";
+        private readonly string PrepPath = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\Prep.txt";
         private int[] Ranks = { 0, 0, 0, 0, 0, 0 };
         private bool Finished = false;
 
@@ -47,7 +49,7 @@ namespace ChessCards
 
         public void CheckStatistics()
         {
-            string json = File.ReadAllText(path);
+            string json = System.IO.File.ReadAllText(Path);
             var StatData = JsonConvert.DeserializeObject<Flashcard>(json);
             List<Position> CatagorySearch = StatData.Position;
             Array.Clear(Ranks, 0, 6);
@@ -59,12 +61,12 @@ namespace ChessCards
 
         public void GenerateNewCard()
         {
-            string json = File.ReadAllText(path);
+            string json = System.IO.File.ReadAllText(Path);
             var CardData = JsonConvert.DeserializeObject<Flashcard>(json);
             List<Position> SetData = CardData.Position;
             if (CompletedCards.Count == SetData.Count)
             {
-                int Percent = (int)Math.Round((decimal) 100 * Correct / Total);
+                int Percent = (int)Math.Round((decimal)100 * Correct / Total);
                 MessageBox.Show($"All cards complete! Your score is {Percent}% ({Correct}/{Total})", "Message");
                 Finished = true;
             }
@@ -132,12 +134,12 @@ namespace ChessCards
                     MessageBox.Show($"Incorrect! The answer was {NewCard.Move}", "Notice");
                 }
                 int SuccessRate = (int)Math.Round((decimal)100 * NewCard.Successes / NewCard.TimesPlayed);
-                NewCard.Catagory = (int)Math.Ceiling((decimal) SuccessRate / 20);
-                string json = File.ReadAllText(path);
+                NewCard.Catagory = (int)Math.Ceiling((decimal)SuccessRate / 20);
+                string json = System.IO.File.ReadAllText(Path);
                 var TempData = JsonConvert.DeserializeObject<Flashcard>(json);
                 TempData.Position[CardNum] = NewCard;
                 string WriteTempData = JsonConvert.SerializeObject(TempData, Formatting.Indented);
-                File.WriteAllText(path, WriteTempData);
+                System.IO.File.WriteAllText(Path, WriteTempData);
                 textBox1.Clear();
                 int Percent = (int)Math.Round((decimal)100 * Correct / Total);
                 label1.Text = $"Score: {Percent}% ({Correct}/{Total})";
@@ -150,13 +152,81 @@ namespace ChessCards
         public void button1_Click(object sender, EventArgs e)
         {
             CheckStatistics();
-            int T = Ranks[0] + Ranks[1] + Ranks[2] + Ranks[3] + Ranks[4] + Ranks[5];  
+            int T = Ranks[0] + Ranks[1] + Ranks[2] + Ranks[3] + Ranks[4] + Ranks[5];
             MessageBox.Show($"Total: {T} \nRank 1: {Ranks[5]} ({(int)Math.Round((decimal)100 * Ranks[5] / T)}%) \nRank 2: {Ranks[4]} ({(int)Math.Round((decimal)100 * Ranks[4] / T)}%) \nRank 3: {Ranks[3]} ({(int)Math.Round((decimal)100 * Ranks[3] / T)}%) \nRank 4: {Ranks[2]} ({(int)Math.Round((decimal)100 * Ranks[2] / T)}%) \nRank 5: {Ranks[1]} ({(int)Math.Round((decimal)100 * Ranks[1] / T)}%) \nUnranked: {Ranks[0]} ({(int)Math.Round((decimal)100 * Ranks[0] / T)}%) \n\n*NOTE: Each rank is 20%", "Stats");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string[] opening = System.IO.File.ReadAllLines(PrepPath);
+            bool IsWhite = true;
+            foreach (string line in opening)
+            {
+                if (line == "White")
+                {
+                    IsWhite = true;
+                }
+                else if (line == "Black")
+                {
+                    IsWhite = false;
+                }
+                else
+                {
+                    List<string> Moves = new List<string>();
+                    string[] Splice = line.Split(' ');
+                    string json = System.IO.File.ReadAllText(Path);
+                    var TempData = JsonConvert.DeserializeObject<Flashcard>(json);
+                    List<Position> CardList = TempData.Position;
+                    for (int S = 3; S <= Splice.Length; S += 3)
+                    {
+                        string SANMove = Splice[S - 3] + " " + Splice[S - 2] + " " + Splice[S - 1] + " ";
+                        Moves.Add(SANMove);
+                    }
+                    string Rolling = "";
+                    for (int IndexNum = 0; IndexNum < Moves.Count - 1; IndexNum++)
+                    {
+                        Rolling += Moves[IndexNum];
+                        PgnReader<ChessGame> reader = new PgnReader<ChessGame>();
+                        reader.ReadPgnFromString(Rolling);
+                        string FEN = reader.Game.GetFen().Replace(" ", "_");
+                        string URL = "";
+                        string CardMove = "";
+                        if (IsWhite)
+                        {
+                            URL = "https://fen2image.chessvision.ai/" + FEN + "?turn=white";
+                            CardMove = Moves[IndexNum + 1].Split(' ')[1];
+                        }
+                        else
+                        {
+                            URL = "https://fen2image.chessvision.ai/" + FEN + "?turn=black&pov=black";
+                            CardMove = Moves[IndexNum + 1].Split(' ')[2];
+                        }
+                        bool Unique = true;
+                        foreach (Position Flash in CardList)
+                        {
+                            if (Flash.PositionURL == URL)
+                            {
+                                Unique = false;
+                            }
+                        }
+                        if (Unique)
+                        {
+                            Position GeneratedCard = new Position();
+                            GeneratedCard.Catagory = 0;
+                            GeneratedCard.Successes = 0;
+                            GeneratedCard.TimesPlayed = 0;
+                            GeneratedCard.PositionURL = URL;
+                            GeneratedCard.Move = CardMove;
+                            CardList.Add(GeneratedCard);
+                            string WriteTempData = JsonConvert.SerializeObject(TempData, Formatting.Indented);
+                            System.IO.File.WriteAllText(Path, WriteTempData);
+                        }
+                    }
+                }
+            }
+            MessageBox.Show("Done!", "Notice");
 
         }
     }
 }
+
