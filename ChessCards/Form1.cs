@@ -135,6 +135,10 @@ namespace ChessCards
                 }
                 int SuccessRate = (int)Math.Round((decimal)100 * NewCard.Successes / NewCard.TimesPlayed);
                 NewCard.Catagory = (int)Math.Ceiling((decimal)SuccessRate / 20);
+                if (NewCard.Catagory == 0)
+                {
+                    NewCard.Catagory = 1;
+                }
                 string json = System.IO.File.ReadAllText(Path);
                 var TempData = JsonConvert.DeserializeObject<Flashcard>(json);
                 TempData.Position[CardNum] = NewCard;
@@ -169,6 +173,10 @@ namespace ChessCards
                 else if (line == "Black")
                 {
                     IsWhite = false;
+                }
+                else if (line[0] == '[' && line[line.Length - 1] == ']')
+                {
+
                 }
                 else
                 {
