@@ -107,7 +107,7 @@ namespace ChessCards
                 }
                 int size = CatagorySet.Count;
                 int CardTempNum = random.Next(size);
-                NewCard = CatagorySet[CardTempNum]; //an error pointed to here, but I don't know why
+                NewCard = CatagorySet[CardTempNum]; 
                 CardNum = SetData.IndexOf(NewCard);
                 CompletedCards.Add(CardNum);
                 pictureBox1.Load(NewCard.PositionURL);
