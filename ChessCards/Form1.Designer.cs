@@ -80,7 +80,7 @@
             this.btn_FEN.Name = "btn_FEN";
             this.btn_FEN.Size = new System.Drawing.Size(600, 30);
             this.btn_FEN.TabIndex = 4;
-            this.btn_FEN.Text = "Generate FENs";
+            this.btn_FEN.Text = "Generate Flashcards";
             this.btn_FEN.UseVisualStyleBackColor = true;
             this.btn_FEN.Click += new System.EventHandler(this.button3_Click);
             // 

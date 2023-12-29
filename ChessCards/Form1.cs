@@ -107,7 +107,7 @@ namespace ChessCards
                 }
                 int size = CatagorySet.Count;
                 int CardTempNum = random.Next(size);
-                NewCard = CatagorySet[CardTempNum]; //an error pointed to here, but I don't know why
+                NewCard = CatagorySet[CardTempNum]; 
                 CardNum = SetData.IndexOf(NewCard);
                 CompletedCards.Add(CardNum);
                 pictureBox1.Load(NewCard.PositionURL);
@@ -139,7 +139,7 @@ namespace ChessCards
                 string json = System.IO.File.ReadAllText(Path);
                 var TempData = JsonConvert.DeserializeObject<Flashcard>(json);
                 TempData.Position[CardNum] = NewCard;
-                string WriteTempData = JsonConvert.SerializeObject(TempData, Formatting.Indented);
+                string WriteTempData = JsonConvert.SerializeObject(TempData);
                 System.IO.File.WriteAllText(Path, WriteTempData);
                 textBox1.Clear();
                 int Percent = (int)Math.Round((decimal)100 * Correct / Total);
@@ -173,6 +173,10 @@ namespace ChessCards
                 else if (line == "Black")
                 {
                     IsWhite = false;
+                }
+                else if (line == "")
+                {
+
                 }
                 else if (line[0] == '[' && line[line.Length - 1] == ']')
                 {
@@ -236,7 +240,7 @@ namespace ChessCards
                             GeneratedCard.PositionURL = URL;
                             GeneratedCard.Move = CardMove;
                             CardList.Add(GeneratedCard);
-                            string WriteTempData = JsonConvert.SerializeObject(TempData, Formatting.Indented);
+                            string WriteTempData = JsonConvert.SerializeObject(TempData);
                             System.IO.File.WriteAllText(Path, WriteTempData);
                             Added++;
                         }
@@ -259,7 +263,7 @@ namespace ChessCards
             {
                 Checklist.Remove(Fish);
             }
-            string WriteTempDatas = JsonConvert.SerializeObject(CheckData, Formatting.Indented);
+            string WriteTempDatas = JsonConvert.SerializeObject(CheckData);
             System.IO.File.WriteAllText(Path, WriteTempDatas);
             MessageBox.Show($"Done! {Added} added and {Removed} removed", "Notice");
         }
