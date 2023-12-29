@@ -32,6 +32,7 @@ namespace ChessCards
         private readonly string Path = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\ChessCardsData.txt";
         private readonly string PrepPath = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\Prep.txt";
         private int[] Ranks = { 0, 0, 0, 0, 0, 0 };
+        private int[] RanksCompleted = { 0, 0, 0, 0, 0, 0 };
         private bool Finished = false;
 
         public ChessCards()
@@ -69,10 +70,17 @@ namespace ChessCards
                 Random random = new Random();
                 int TempCatagory = random.Next(1, 6);
                 CheckStatistics();
+                List<Position> CompletedList = new List<Position>();
+                Array.Clear(RanksCompleted, 0, 6);
+                foreach (int id in CompletedCards)
+                {
+                    CompletedList.Add(SetData[id]);
+                    RanksCompleted[SetData[id].Catagory]++;
+                }
                 bool Check = false;
                 for (int i = 0; i <= TempCatagory; i++)
                 {
-                    if (Ranks[i] != 0)
+                    if (Ranks[i] - RanksCompleted[i] != 0)
                     {
                         Check = true;
                         break;
@@ -82,7 +90,7 @@ namespace ChessCards
                 {
                     for (int v = 0; v <= 5; v++)
                     {
-                        if (Ranks[v] != 0)
+                        if (Ranks[v] - RanksCompleted[v] != 0)
                         {
                             TempCatagory = v;
                             break;
@@ -90,11 +98,6 @@ namespace ChessCards
                     }
                 }
                 List<Position> CatagorySet = new List<Position>();
-                List<Position> CompletedList = new List<Position>();
-                foreach (int id in CompletedCards)
-                {
-                    CompletedList.Add(SetData[id]);
-                }
                 foreach (Position Card in SetData)
                 {
                     if (Card.Catagory <= TempCatagory && !CompletedList.Contains(Card))
@@ -104,7 +107,7 @@ namespace ChessCards
                 }
                 int size = CatagorySet.Count;
                 int CardTempNum = random.Next(size);
-                NewCard = CatagorySet[CardTempNum];
+                NewCard = CatagorySet[CardTempNum]; //an error pointed to here, but I don't know why
                 CardNum = SetData.IndexOf(NewCard);
                 CompletedCards.Add(CardNum);
                 pictureBox1.Load(NewCard.PositionURL);
