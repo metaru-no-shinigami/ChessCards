@@ -176,7 +176,7 @@ namespace ChessCards
                 }
                 else if (line == "")
                 {
-
+                    //E
                 }
                 else if (line[0] == '[' && line[line.Length - 1] == ']')
                 {
