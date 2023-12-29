@@ -68,9 +68,9 @@ namespace ChessCards
             else
             {
                 Random random = new Random();
+                List<Position> CompletedList = new List<Position>();
                 int TempCatagory = random.Next(1, 6);
                 CheckStatistics();
-                List<Position> CompletedList = new List<Position>();
                 Array.Clear(RanksCompleted, 0, 6);
                 foreach (int id in CompletedCards)
                 {
@@ -88,7 +88,7 @@ namespace ChessCards
                 }
                 if (!Check)
                 {
-                    for (int v = 0; v <= 5; v++)
+                    for (int v = TempCatagory + 1; v <= 5; v++)
                     {
                         if (Ranks[v] - RanksCompleted[v] != 0)
                         {
@@ -193,21 +193,27 @@ namespace ChessCards
                     string Rolling = "";
                     for (int IndexNum = 0; IndexNum < Moves.Count - 1; IndexNum++)
                     {
-                        Rolling += Moves[IndexNum];
-                        PgnReader<ChessGame> reader = new PgnReader<ChessGame>();
-                        reader.ReadPgnFromString(Rolling);
-                        string FEN = reader.Game.GetFen().Replace(" ", "_");
+
                         string URL = "";
                         string CardMove = "";
+                        PgnReader<ChessGame> reader = new PgnReader<ChessGame>();
                         if (IsWhite)
                         {
-                            URL = "https://fen2image.chessvision.ai/" + FEN + "?turn=white";
+                            
                             CardMove = Moves[IndexNum + 1].Split(' ')[1];
+                            Rolling += Moves[IndexNum];
+                            reader.ReadPgnFromString(Rolling);
+                            string FEN = reader.Game.GetFen().Replace(" ", "_");
+                            URL = "https://fen2image.chessvision.ai/" + FEN + "?turn=white";
                         }
                         else
                         {
-                            URL = "https://fen2image.chessvision.ai/" + FEN + "?turn=black&pov=black";
+                            
                             CardMove = Moves[IndexNum + 1].Split(' ')[2];
+                            Rolling += Moves[IndexNum];
+                            reader.ReadPgnFromString(Rolling + Moves[IndexNum + 1].Split(' ')[0] + Moves[IndexNum + 1].Split(' ')[1]);
+                            string FEN = reader.Game.GetFen().Replace(" ", "_");
+                            URL = "https://fen2image.chessvision.ai/" + FEN + "?turn=black&pov=black";
                         }
                         if (!URLs.Contains(URL))
                         {
