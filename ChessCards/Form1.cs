@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
 using ChessDotNet;
+using System.Linq;
 
 namespace ChessCards
 {
@@ -17,11 +18,28 @@ namespace ChessCards
             public int TimesPlayed { get; set; }
             public string PositionURL { get; set; }
             public string Move { get; set; }
+            public string Opening { get; set; }
+        }
+
+        public class Opening
+        {
+            public string Name { get; set; }
+            public string Color { get; set; }
         }
 
         public class Flashcard
         {
             public List<Position> Position { get; set; }
+            public List<Opening> Openings { get; set; }
+        }
+
+        public class OpeningStat
+        {
+            public string Name { get; set; }
+            public int Score { get; set;}
+            public int MaxScore { get; set; }
+            public int Ranked { get; set; }
+            public int Total { get; set; }
         }
 
         public Position NewCard { get; set; }
@@ -29,8 +47,8 @@ namespace ChessCards
         private int Correct = 0;
         private int Total = 0;
         private int CardNum = 0;
-        private readonly string Path = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\ChessCardsData.txt";
-        private readonly string PrepPath = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\Prep.txt";
+        private string Path = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\ChessCardsData.txt";
+        private string PrepPath = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\Prep.txt";
         private int[] Ranks = { 0, 0, 0, 0, 0, 0 };
         private int[] RanksCompleted = { 0, 0, 0, 0, 0, 0 };
         private bool Finished = false;
@@ -39,6 +57,24 @@ namespace ChessCards
         {
             InitializeComponent();
             this.KeyPreview = true;
+            GenerateNewCard();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                Path = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\ChessCardsDataTemp.txt";
+                PrepPath = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\PrepTemp.txt";
+            }
+            else
+            {
+                Path = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\ChessCardsData.txt";
+                PrepPath = @"C:\Users\SirGr\source\repos\ChessCards\ChessCards\Prep.txt";
+            }
+            Correct = 0;
+            Total = 0;
+            CompletedCards.Clear();
             GenerateNewCard();
         }
 
@@ -152,19 +188,100 @@ namespace ChessCards
 
         public void button1_Click(object sender, EventArgs e)
         {
+            string json = System.IO.File.ReadAllText(Path);
+            var TempData = JsonConvert.DeserializeObject<Flashcard>(json);
+            List<Opening> OpeningList = TempData.Openings;
+            List<Position> PositionList = TempData.Position;
+            List<OpeningStat> OpeningDataWhite = new List<OpeningStat>();
+            List<OpeningStat> OpeningDataBlack = new List<OpeningStat>();
+            List<string> NameListWhite = new List<string>();
+            List<string> NameListBlack = new List<string>();
+            string OpeningText = "\nWhite:";
+            foreach (Opening Openings in OpeningList)
+            {
+                if (Openings.Color == "White")
+                {
+                    OpeningDataWhite.Add(new OpeningStat() { Name = Openings.Name, Score = 0, MaxScore = 0, Ranked = 0, Total = 0 });
+                    NameListWhite.Add(Openings.Name);
+                }    
+                else
+                {
+                    OpeningDataBlack.Add(new OpeningStat() { Name = Openings.Name, Score = 0, MaxScore = 0, Ranked = 0, Total = 0 });
+                    NameListBlack.Add(Openings.Name);
+                }
+                
+            }
+            foreach (Position Position in PositionList)
+            {
+                if (NameListWhite.Contains(Position.Opening))
+                {
+                    OpeningDataWhite[NameListWhite.IndexOf(Position.Opening)].Score += Position.Catagory;
+                    if (Position.Catagory != 0)
+                    {
+                        OpeningDataWhite[NameListWhite.IndexOf(Position.Opening)].MaxScore += 5;
+                        OpeningDataWhite[NameListWhite.IndexOf(Position.Opening)].Ranked++;
+                    }
+                    OpeningDataWhite[NameListWhite.IndexOf(Position.Opening)].Total++;
+                }    
+                else
+                {
+                    OpeningDataBlack[NameListBlack.IndexOf(Position.Opening)].Score += Position.Catagory;
+                    if (Position.Catagory != 0)
+                    {
+                        OpeningDataBlack[NameListBlack.IndexOf(Position.Opening)].MaxScore += 5;
+                        OpeningDataBlack[NameListBlack.IndexOf(Position.Opening)].Ranked++;
+                    }
+                    OpeningDataBlack[NameListBlack.IndexOf(Position.Opening)].Total++;
+                }
+            }
+            for (int Ind = 0; Ind <= OpeningDataWhite.Count - 1; Ind++)
+            {
+                if (OpeningDataWhite[Ind].MaxScore == 0)
+                {
+                    OpeningDataWhite[Ind].MaxScore = 1;
+                }
+            }
+            for (int Inds = 0; Inds <= OpeningDataBlack.Count - 1; Inds++)
+            {
+                if (OpeningDataBlack[Inds].MaxScore == 0)
+                {
+                    OpeningDataBlack[Inds].MaxScore = 1;
+                }
+            }
+            List<OpeningStat> sortedListWhite = OpeningDataWhite.OrderByDescending(obj => (int)Math.Round((decimal)100 * obj.Score / obj.MaxScore)).ToList();
+            foreach (OpeningStat Openingz in sortedListWhite)
+            {
+                OpeningText += $"\n{Openingz.Name}: {(int)Math.Round((decimal)100 * Openingz.Score / Openingz.MaxScore)}% " +
+                    $"({(int)Math.Round((decimal)100 * Openingz.Ranked / Openingz.Total)}% Completed)";
+            }
+            List<OpeningStat> sortedListBlack = OpeningDataBlack.OrderByDescending(obj => (int)Math.Round((decimal)100 * obj.Score / obj.MaxScore)).ToList();
+            OpeningText += "\n\nBlack:";
+            foreach (OpeningStat Openingz in sortedListBlack)
+            {
+                OpeningText += $"\n{Openingz.Name}: {(int)Math.Round((decimal)100 * Openingz.Score / Openingz.MaxScore)}% " +
+                    $"({(int)Math.Round((decimal)100 * Openingz.Ranked / Openingz.Total)}% Completed)";
+            }
             CheckStatistics();
             int T = Ranks[0] + Ranks[1] + Ranks[2] + Ranks[3] + Ranks[4] + Ranks[5];
-            MessageBox.Show($"Total: {T} \nRank 1: {Ranks[5]} ({(int)Math.Round((decimal)100 * Ranks[5] / T)}%) \nRank 2: {Ranks[4]} ({(int)Math.Round((decimal)100 * Ranks[4] / T)}%) \nRank 3: {Ranks[3]} ({(int)Math.Round((decimal)100 * Ranks[3] / T)}%) \nRank 4: {Ranks[2]} ({(int)Math.Round((decimal)100 * Ranks[2] / T)}%) \nRank 5: {Ranks[1]} ({(int)Math.Round((decimal)100 * Ranks[1] / T)}%) \nUnranked: {Ranks[0]} ({(int)Math.Round((decimal)100 * Ranks[0] / T)}%) \n\n*NOTE: Each rank is 20%", "Stats");
+            MessageBox.Show($"Total: {T} " +
+                $"\nRank 1: {Ranks[5]} ({(int)Math.Round((decimal)100 * Ranks[5] / T)}%) " +
+                $"\nRank 2: {Ranks[4]} ({(int)Math.Round((decimal)100 * Ranks[4] / T)}%) " +
+                $"\nRank 3: {Ranks[3]} ({(int)Math.Round((decimal)100 * Ranks[3] / T)}%) " +
+                $"\nRank 4: {Ranks[2]} ({(int)Math.Round((decimal)100 * Ranks[2] / T)}%) " +
+                $"\nRank 5: {Ranks[1]} ({(int)Math.Round((decimal)100 * Ranks[1] / T)}%) " +
+                $"\nUnranked: {Ranks[0]} ({(int)Math.Round((decimal)100 * Ranks[0] / T)}%) " +
+                $"\n{OpeningText}", "Stats");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string[] opening = System.IO.File.ReadAllLines(PrepPath);
+            string[] OpeningLine = System.IO.File.ReadAllLines(PrepPath);
             bool IsWhite = true;
+            string OpeningQ = "";
             List<string> URLs = new List<string>();
             int Added = 0;
             int Removed = 0;
-            foreach (string line in opening)
+            foreach (string line in OpeningLine)
             {
                 if (line == "White")
                 {
@@ -176,11 +293,37 @@ namespace ChessCards
                 }
                 else if (line == "")
                 {
-                    //E
+                    //Nothing
                 }
                 else if (line[0] == '[' && line[line.Length - 1] == ']')
                 {
-
+                    OpeningQ = line.TrimStart('[').TrimEnd(']');
+                    string json2 = System.IO.File.ReadAllText(Path);
+                    var TempData2 = JsonConvert.DeserializeObject<Flashcard>(json2);
+                    string Color = "";
+                    List<Opening> Open = TempData2.Openings;
+                    List<string> Dude = new List<string>();
+                    foreach (Opening Edward in Open)
+                    {
+                        Dude.Add(Edward.Name);
+                    }    
+                    if (IsWhite)
+                    {
+                        Color = "White";
+                    }    
+                    else
+                    {
+                        Color = "Black";
+                    }
+                    Opening Window = new Opening();
+                    Window.Color = Color;
+                    Window.Name = OpeningQ;
+                    if (!Dude.Contains(OpeningQ))
+                    {
+                        Open.Add(Window);
+                        string WriteTempData2 = JsonConvert.SerializeObject(TempData2);
+                        System.IO.File.WriteAllText(Path, WriteTempData2);
+                    }
                 }
                 else
                 {
@@ -239,6 +382,7 @@ namespace ChessCards
                             GeneratedCard.TimesPlayed = 0;
                             GeneratedCard.PositionURL = URL;
                             GeneratedCard.Move = CardMove;
+                            GeneratedCard.Opening = OpeningQ;
                             CardList.Add(GeneratedCard);
                             string WriteTempData = JsonConvert.SerializeObject(TempData);
                             System.IO.File.WriteAllText(Path, WriteTempData);
